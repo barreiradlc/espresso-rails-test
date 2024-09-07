@@ -13,12 +13,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   host: localhost
-  username: espresso-rails
-  password: espresso-rails-password
-  database: espresso-rails-test
+  username: root
+  password: 
   socket: /tmp/mysql.sock
-  # socket: /var/run/mysqld/mysqld.sock
-  
+
 
 development:  
   <<: *default
