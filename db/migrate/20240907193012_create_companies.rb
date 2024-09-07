@@ -1,0 +1,14 @@
+class CreateCompanies < ActiveRecord::Migration[5.2]
+  def change
+    create_table :companies do |t|
+      t.string :name
+      t.string :cnpj
+
+      t.timestamps
+    end
+    
+    def down
+      drop_table :companies
+    end
+  end
+end
