@@ -1,11 +1,12 @@
 class SessionJwtDecoder
   def initialize(token)
     @token = token
-    
   end
 
   def call
-    decoded = JWT.decode(@token, Rails.application.credentials.secret_key_base)[0]
+    jwt_secret = ENV['JWT_SECRET']
+
+    decoded = JWT.decode(@token, jwt_secret)[0]
     HashWithIndifferentAccess.new decoded
   end
 

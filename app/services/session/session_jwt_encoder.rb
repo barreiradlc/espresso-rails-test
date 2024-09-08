@@ -5,8 +5,10 @@ class SessionJwtEncoder
   end
 
   def call
+    jwt_secret = ENV['JWT_SECRET']
+
     @payload[:exp] = Time.now.to_i + @expire_duration.to_i
-    JWT.encode(@payload, Rails.application.credentials.secret_key_base)
+    JWT.encode(@payload, jwt_secret)
   end
 
 end

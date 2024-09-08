@@ -26,3 +26,8 @@ O ciclo básico do TDD é: Red, Green, Refactor:
 Red: Escreva um teste que falhe.
 Green: Implemente o código mínimo necessário para fazer o teste passar.
 Refactor: Refatore o código, mantendo o teste verde.
+
+
+### REST
+
+A aplicação é desenvolvida em REST, sendo assim as rotas são http. Para facilitar testar cada uma está sendo documentada em `app/rest_docs`, arquivos na extensão ".http" reconhecidos pela extensão [rest-client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) para vs code

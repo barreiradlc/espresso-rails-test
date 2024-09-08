@@ -3,7 +3,7 @@ class AuthorizeRequest
     @app = app
   end
 
-  def call(env)    
+  def call(env)
     @path = env['ORIGINAL_FULLPATH']
 
     if @path == '/' || @path == '/login' || @path == '/register'
@@ -12,11 +12,13 @@ class AuthorizeRequest
 
     header = env['HTTP_AUTHORIZATION']
     header = header.split(' ').last if header
+
     begin
-      @decoded = SessionAuthenticator.decode(header)
-      @current_user = User.find(@decoded[:user_id])
-    rescue JWT::DecodeError
-      raise Exception.new 'Invalid or expired token'
+      session_jwt_decoder = SessionJwtDecoder.new(header)
+      @decoded = session_jwt_decoder.call
+      $current_user = User.find(@decoded[:user_id])
+    rescue JWT::DecodeError => e
+      render json: { error: 'Invalid or expired token' }, status: :unauthorized
     end
     @app.call(env)
   end

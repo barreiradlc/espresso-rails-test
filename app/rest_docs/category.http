@@ -5,13 +5,26 @@
 # EMPLOYEE
 @email = "shanon@mcdermott.test"
 @password = "empoyee-password"
+@name = "meal"
 
-### 
+###
 # @name login
 POST http://localhost:3000/login 
 content-type: application/json
 
-{
+{ 
   "email": {{email}},
   "password": {{password}}
 }
+
+###
+# @name createCategory
+POST http://localhost:3000/category 
+content-type: application/json
+Authorization: Bearer {{ login.response.body.$.token }}
+
+{
+  "name": {{name}}
+}
+
+

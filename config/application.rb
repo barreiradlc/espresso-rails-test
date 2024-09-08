@@ -4,6 +4,7 @@ require_relative 'boot'
 require_relative '../app/middleware/authorize_request'
 
 require 'rails'
+require 'rails/all'
 # Pick the frameworks you want:
 require 'active_model/railtie'
 require 'active_job/railtie'
@@ -19,6 +20,9 @@ require 'sprockets/railtie'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+
+Dotenv::Railtie.load
 
 
 module EspressoRailsTest
