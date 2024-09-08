@@ -1,0 +1,17 @@
+# ADMIN
+@email = "tiera@greenfelder.test"
+@password = "admin-password"
+
+###
+# @name login
+POST http://localhost:3000/login 
+content-type: application/json
+
+{
+  "email": {{email}},
+  "password": {{password}}
+}
+
+# # JWT
+# Authorization: Bearer {{ login.response.body.$.token }}
+
