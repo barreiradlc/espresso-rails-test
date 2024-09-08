@@ -21,14 +21,12 @@ require 'sprockets/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-
 Dotenv::Railtie.load
-
 
 module EspressoRailsTest
   class Application < Rails::Application
-    config.autoload_paths += Dir[ Rails.root.join('app', 'services', '**/') ]
-    config.autoload_paths += Dir[ Rails.root.join('app', 'controllers', '**/') ]
+    config.autoload_paths += Dir[Rails.root.join('app/services/**/')]
+    config.autoload_paths += Dir[Rails.root.join('app/controllers/**/')]
 
     config.middleware.insert_before 0, AuthorizeRequest
     config.load_defaults 5.2

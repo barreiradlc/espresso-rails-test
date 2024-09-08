@@ -9,9 +9,7 @@ RSpec.describe Ability do
   let(:category) { Category.create!(name: 'Test Category', user: employee) }
 
   describe 'Admin abilities' do
-    before(:all) do
-      $current_user = create(:user, role: :admin)
-    end
+    RequestStore[:current_user] = create(:user, role: :admin)
 
     it 'can manage all' do
       ability = described_class.new(admin)
@@ -20,11 +18,9 @@ RSpec.describe Ability do
   end
 
   describe 'Employee abilities' do
-    before(:all) do
-      $current_user = create(:user, role: :employee)
-    end
+    RequestStore[:current_user] = create(:user, role: :employee)
 
-    it 'can update category' do      
+    it 'can update category' do
       ability = described_class.new(employee)
       expect(ability).to be_able_to(:update, Category)
     end

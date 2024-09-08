@@ -1,4 +1,5 @@
-# spec/requests/sessions_controller_spec.rb
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CreateSessionController, type: :controller do
@@ -8,10 +9,14 @@ RSpec.describe CreateSessionController, type: :controller do
 
   describe 'POST #login' do
     context 'with valid credentials' do
-      it 'returns an auth token' do
+      it 'returns a valid response' do
         post :call, params: valid_credentials
         expect(response).to have_http_status(:ok)
-        expect(JSON.parse(response.body)).to have_key('token')
+      end
+
+      it 'returns an auth token' do
+        post :call, params: valid_credentials
+        expect(response.parsed_body).to have_key('token')
       end
     end
 

@@ -7,6 +7,6 @@ class CategoryCreator < ApplicationService
   end
 
   def call
-    Category.create!(@category_params)    
+    Category.create!(@category_params)
   end
 end

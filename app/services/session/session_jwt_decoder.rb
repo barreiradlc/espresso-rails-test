@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 class SessionJwtDecoder
   def initialize(token)
     @token = token
   end
 
   def call
-    jwt_secret = ENV['JWT_SECRET']
+    jwt_secret = ENV.fetch('JWT_SECRET', nil)
 
     decoded = JWT.decode(@token, jwt_secret)[0]
-    HashWithIndifferentAccess.new decoded
+    ActiveSupport::HashWithIndifferentAccess.new decoded
   end
-
 end

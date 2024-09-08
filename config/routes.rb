@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # AUTH
   post :login, to: 'create_session#call'
-  
+
   # CATEGORIES
   post :category, to: 'create_category#call'
 end

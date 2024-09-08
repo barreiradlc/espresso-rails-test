@@ -18,7 +18,7 @@ RSpec.describe EmployeeAbility, type: :model do
       expect(ability).to be_able_to(:update, Category)
     end
 
-    it 'cannot create categories' do      
+    it 'cannot create categories' do
       ability = described_class.new(employee)
       expect(ability).not_to be_able_to(:create, Category)
     end

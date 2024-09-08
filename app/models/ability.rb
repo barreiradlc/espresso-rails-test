@@ -9,7 +9,7 @@ class Ability
     elsif user.employee?
       @ability = EmployeeAbility.new(user)
     else
-      raise CanCan::AccessDenied.new("You need a valid account to access the App")
+      raise CanCan::AccessDenied, 'You need a valid account to access the App'
     end
   end
 
