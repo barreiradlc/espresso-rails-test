@@ -6,8 +6,8 @@ class CategoryUpdater
     @category_params = category_params
   end
 
-  def call    
-    @category = Category.find_by!(id: @category_id)    
+  def call
+    @category = Category.find(@category_id)
     @category.update!(@category_params)
     @category
   end
