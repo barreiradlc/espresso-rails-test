@@ -14,11 +14,11 @@ default: &default
   encoding: utf8
   host: localhost
   username: root
-  password: 
+  password:
   socket: /tmp/mysql.sock
 
 
-development:  
+development:
   <<: *default
   database: espresso-rails-test_development
 

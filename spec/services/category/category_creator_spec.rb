@@ -13,8 +13,8 @@ RSpec.describe CategoryCreator, type: :service do
   it 'Does not create a category with same name' do
     Category.create!(valid_params)
 
-    expect {
-        CategoryCreator.new(valid_params).call
-      }.to raise_error(ActiveRecord::RecordInvalid, /Name has already been taken/)
+    expect do
+      described_class.new(valid_params).call
+    end.to raise_error(ActiveRecord::RecordInvalid, /Name has already been taken/)
   end
 end
