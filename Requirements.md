@@ -10,7 +10,7 @@
     - Usuário deve ser capaz de criar uma nova conta, informando os seus `dados pessoais` (``nome``, ``email`` e ``senha``);
   [x] - E os dados da empresa (``nome`` e ``cnpj``). O usuário que criar a conta será definido como administrador dessa conta para a empresa;
 
-  [ ] - Perfis de acesso
+  [x] - Perfis de acesso
   - Deverá existir dois perfis de acesso: `Administrador` e `Funcionário`.
 
   ### Funções do perfil Administrador
