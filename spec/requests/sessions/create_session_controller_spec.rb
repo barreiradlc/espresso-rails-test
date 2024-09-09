@@ -15,7 +15,7 @@ RSpec.describe CreateSessionController, type: :controller do
       end
 
       it 'returns an auth token' do
-        post :call, params: valid_credentials, format: :json
+        post :call, params: valid_credentials
         expect(response.body).not_to be_empty
       end
     end
