@@ -5,7 +5,9 @@ require 'rails_helper'
 RSpec.describe CategoryCreator, type: :service do
   let(:valid_params) { { name: 'Test category' } }
 
-  RequestStore[:current_user] = create(:user, role: :admin)
+  before do
+    RequestStore[:current_user] = FactoryBot.create(:user, role: :admin)
+  end
 
   it 'creates a category with valid parameters' do
     service = described_class.new(valid_params)
