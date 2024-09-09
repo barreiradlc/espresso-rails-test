@@ -16,8 +16,4 @@ class Ability
   def can?(action, subject, *extra_args)
     @ability.can?(action, subject, *extra_args)
   end
-
-  def cannot?(action, subject, *extra_args)
-    @ability.cannot?(action, subject, *extra_args)
-  end
 end

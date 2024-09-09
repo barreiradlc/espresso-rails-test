@@ -16,7 +16,7 @@ class AuthorizeRequest
       @decoded = SessionJwtDecoder.new(header).call
       RequestStore[:current_user] = User.find(@decoded[:user_id])
     rescue JWT::DecodeError
-      render json: { error: 'Invalid or expired token' }, status: :unauthorized
+      return { error: 'Invalid or expired token' }
     end
     @app.call(env)
   end
