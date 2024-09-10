@@ -61,6 +61,7 @@ group :development, :test do
   gem 'faker'
   gem 'guard'
   gem 'guard-shell'
+  gem 'mailtrap'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
