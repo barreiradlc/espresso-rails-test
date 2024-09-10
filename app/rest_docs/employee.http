@@ -1,12 +1,12 @@
 # # ADMIN
-@email = "tiera@greenfelder.test"
+@email = "tiera@greenfelde.test"
 @password = "admin-password"
 
 
 # EMPLOYEE
 @employee_name = "Shanon Murrey"
-@employee_email = "shanon@mcdermott.test"
-@employee_password = "empoyee-password"
+@employee_email = "shanon@2024-09-10T14:33:20.58.test"
+@employee_password = "72c1cshanon"
 
 ### 
 # @name login
@@ -26,8 +26,8 @@ content-type: application/json
 Authorization: Bearer {{ login.response.body.$.token }}
 
 {
-  "name": {{employee_name}},
-  "email": {{employee_email}},
-  "password": {{employee_password}},
-  "company_id": "4"
+  "user": {
+    "name": {{employee_name}},
+    "email": {{employee_email}}
+  }
 }

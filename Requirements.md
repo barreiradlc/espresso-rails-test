@@ -15,7 +15,7 @@
 
   ### Funções do perfil Administrador
 
-  * [ ] - Acessar sua conta informado email e senha;
+  * [x] - Acessar sua conta informado email e senha;
   * [ ] - Visualizar a lista de despesas de todos os cartões de sua empresa;
   * [ ] - Visualizar de forma segmentada as despesas comprovadas, não comprovadas e arquivadas;
   * [ ] - Arquivar despesas ainda não comprovadas;
@@ -25,7 +25,7 @@
 
   ### Funções do perfil Funcionário
 
-  * [ ] - Acessar sua conta informado email e senha. Senha será recebida no email de cadastro;
+  * [x] - Acessar sua conta informado email e senha. Senha será recebida no email de cadastro;
   * [ ] - Visualizar a lista de despesas dos seus cartões;
   * [ ] - Visualizar de forma segmentada as suas despesas comprovadas e não comprovadas;
   * [ ] - Anexar um comprovante em despesas do seu cartão. Formatos suportados: jpeg, png ou pdf;
