@@ -1,11 +1,11 @@
 # # ADMIN
-@email = "tiera@greenfelde.test"
+@email = "admin@admin.com"
 @password = "admin-password"
 
 
 # EMPLOYEE
-@employee_name = "Shanon Murrey"
-@employee_email = "shanon@2024-09-10T14:33:20.58.test"
+@employee_name = "Shanon Lucas"
+@employee_email = "shanon@lucas.test"
 @employee_password = "72c1cshanon"
 
 ### 
@@ -27,6 +27,20 @@ Authorization: Bearer {{ login.response.body.$.token }}
 
 {
   "user": {
+    "name": {{employee_name}},
+    "email": {{employee_email}}
+  }
+}
+
+###
+# @name updateEmployee
+PUT http://localhost:3000/employee/{{ createEmployee.response.body.$.employee.id }}
+content-type: application/json
+Authorization: Bearer {{ login.response.body.$.token }}
+
+{
+  "user": {
+    "id": "{{ createEmployee.response.body.$.employee.id }}",
     "name": {{employee_name}},
     "email": {{employee_email}}
   }

@@ -4,6 +4,7 @@ FactoryBot.create(
   :user,
   role: :admin,
   name: 'My Admin',
+  email: 'admin@admin.com',
   password: 'admin-password',
   password_confirmation: 'admin-password'
 )
@@ -11,6 +12,7 @@ FactoryBot.create(
 FactoryBot.create(
   :user,
   role: :employee,
+  email: 'employee@admin.com',
   name: 'My Employee',
   password: 'empoyee-password',
   password_confirmation: 'empoyee-password'

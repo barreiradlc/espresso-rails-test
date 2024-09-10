@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # USERS
   post :employee, to: 'create_employee#call'
+  put 'employee/:id', to: 'update_employee#call'
 
   # CATEGORIES
   post :category, to: 'create_category#call'
