@@ -7,7 +7,7 @@ class UserEmployeeUpdater
   end
 
   def call
-    user = User.find_by(id: @user_id)
+    user = User.find(@user_id)
     user.update!(@user_params)
 
     user

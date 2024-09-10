@@ -4,7 +4,7 @@ class UpdateEmployeeController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def call
-    user_employee_updater = UserEmployeeUpdater.new(employee_params[:id], employee_params)
+    user_employee_updater = UserEmployeeUpdater.new(params[:id], employee_params)
     updated_employee = user_employee_updater.call
 
     render json: { employee: updated_employee }, status: :ok
