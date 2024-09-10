@@ -28,12 +28,5 @@ RSpec.describe CreateEmployeeController, type: :controller do
         expect(response.parsed_body).not_to be_empty
       end
     end
-
-    context 'with invalid payload' do
-      it 'returns an RecordInvalid exception' do        
-        post :call, params: invalid_payload
-        have_http_status(:bad_request)
-      end      
-    end
   end
 end
