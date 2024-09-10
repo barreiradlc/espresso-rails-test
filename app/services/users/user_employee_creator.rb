@@ -13,4 +13,3 @@ class UserEmployeeCreator
     user
   end
 end
-  

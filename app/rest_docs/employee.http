@@ -1,0 +1,33 @@
+# # ADMIN
+@email = "tiera@greenfelder.test"
+@password = "admin-password"
+
+
+# EMPLOYEE
+@employee_name = "Shanon Murrey"
+@employee_email = "shanon@mcdermott.test"
+@employee_password = "empoyee-password"
+
+### 
+# @name login
+POST http://localhost:3000/login 
+content-type: application/json
+
+{
+  "email": {{email}},
+  "password": {{password}}
+}
+
+
+###
+# @name createEmployee
+POST http://localhost:3000/employee
+content-type: application/json
+Authorization: Bearer {{ login.response.body.$.token }}
+
+{
+  "name": {{employee_name}},
+  "email": {{employee_email}},
+  "password": {{employee_password}},
+  "company_id": "4"
+}

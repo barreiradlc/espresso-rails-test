@@ -59,6 +59,8 @@ group :development, :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'guard'
+  gem 'guard-shell'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
