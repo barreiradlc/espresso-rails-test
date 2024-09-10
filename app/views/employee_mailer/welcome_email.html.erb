@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email de boas vindas</title>
+</head>
+<body>
+  <h1>Bem vindo(a) ao nosso app!</h1>
+  <p>Olá <%= @user.name %>,</p>
+  <p>Muito obrigado por fazer parte do time! Você acaba de ser cadastrado ao grupo <b><%= @user.company.name %></b> </p>
+  <h5>Sua senha de cadastro é <%= @password %></h5>
+</body>
+</html>
