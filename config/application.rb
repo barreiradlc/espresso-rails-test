@@ -2,6 +2,7 @@
 
 require_relative 'boot'
 require_relative '../app/middleware/authorize_request'
+require_relative '../app/middleware/bad_request_handler'
 
 require 'rails'
 require 'rails/all'
@@ -28,7 +29,9 @@ module EspressoRailsTest
     config.autoload_paths += Dir[Rails.root.join('app/services/**/')]
     config.autoload_paths += Dir[Rails.root.join('app/controllers/**/')]
 
+    config.middleware.use BadRequestHandler
     config.middleware.insert_before 0, AuthorizeRequest
+
     config.load_defaults 5.2
     config.generators.system_tests = nil
   end
