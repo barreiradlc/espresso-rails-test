@@ -1,0 +1,8 @@
+en:
+  mailer:
+    user_mailer:
+      welcome:
+        subject: "Bem vindo(a) ao nosso App!"
+        body:
+          greeting: "Olá"
+          message: "Bem vindo(a) ao nosso App!"

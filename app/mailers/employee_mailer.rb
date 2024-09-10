@@ -5,6 +5,6 @@ class EmployeeMailer < ApplicationMailer
     @user = user
     @password = password
 
-    mail to: @user.email, subject: 'Bem vindo ao nosso app!'
+    mail to: @user.email, subject: I18n.t('mailer.user_mailer.welcome.subject')
   end
 end
