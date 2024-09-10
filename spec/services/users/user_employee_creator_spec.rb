@@ -7,7 +7,7 @@ RSpec.describe UserEmployeeCreator, type: :service do
 
   it 'creates a user with valid parameters' do
     service = described_class.new(valid_params)
-    
+
     employee_created = service.call
 
     expect(employee_created['email']).to eq(valid_params[:email])

@@ -5,12 +5,12 @@ require 'rails_helper'
 RSpec.describe CreateEmployeeController, type: :controller do
   let!(:company) { create(:company) }
   let(:valid_payload) do
-    { name: 'John Doe', email: 'john@email.com', password: 'my-password', company_id: company.id }
+    { user: { name: 'John Doe', email: 'john@email.com', company_id: company.id } }
   end
   let(:valid_payload2) do
-    { name: 'Mary Doe', email: 'mary@email.com', password: 'my-password', company_id: company.id }
+    { user: { name: 'Mary Doe', email: 'mary@email.com', password: 'my-password', company_id: company.id } }
   end
-  let(:invalid_payload) { { email: 'wrong', password: 'wrong' } }
+  let(:invalid_payload) { { user: { name: 'wrong', email: 'wrong' } } }
 
   describe 'POST #employee' do
     before do
@@ -30,11 +30,10 @@ RSpec.describe CreateEmployeeController, type: :controller do
     end
 
     context 'with invalid payload' do
-      it 'returns an RecordInvalid exception' do
-        assert_exception_raised(ActiveRecord::RecordInvalid) do
-          post :call, params: invalid_payload
-        end
-      end
+      it 'returns an RecordInvalid exception' do        
+        post :call, params: invalid_payload
+        have_http_status(:bad_request)
+      end      
     end
   end
 end
