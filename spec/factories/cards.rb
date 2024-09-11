@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :card do
-    last_digits { Faker::Number.between(from: 0o000, to: 9999) }
+    last_digits { Faker::Number.between(from: 0o000, to: 9999).to_s }
   end
 end
