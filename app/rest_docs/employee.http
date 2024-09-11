@@ -46,7 +46,7 @@ Authorization: Bearer {{ login.response.body.$.token }}
 }
 
 ###
-# @name deleteEmployee
+# @name deleteEmployee  
 DELETE http://localhost:3000/employee/{{ createEmployee.response.body.$.employee.id }}
 content-type: application/json
 Authorization: Bearer {{ login.response.body.$.token }}
