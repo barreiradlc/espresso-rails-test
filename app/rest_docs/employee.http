@@ -5,7 +5,7 @@
 
 # EMPLOYEE
 @employee_name = "Shanon Lucas"
-@employee_email = "shanon@lucas.test"
+@employee_email = "shanon@lucas2.test"
 @employee_password = "72c1cshanon"
 
 ### 
@@ -40,8 +40,13 @@ Authorization: Bearer {{ login.response.body.$.token }}
 
 {
   "user": {
-    "id": "{{ createEmployee.response.body.$.employee.id }}",
     "name": {{employee_name}},
     "email": {{employee_email}}
   }
 }
+
+###
+# @name deleteEmployee
+DELETE http://localhost:3000/employee/{{ createEmployee.response.body.$.employee.id }}
+content-type: application/json
+Authorization: Bearer {{ login.response.body.$.token }}
