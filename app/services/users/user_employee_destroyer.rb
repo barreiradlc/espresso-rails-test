@@ -6,6 +6,7 @@ class UserEmployeeDestroyer
   end
 
   def call
-    User.destroy(id: @user_id)
+    user = User.find(@user_id)
+    user.destroy!
   end
 end
