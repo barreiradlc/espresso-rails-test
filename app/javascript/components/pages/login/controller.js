@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LoginPage } from ".";
-import { api } from "../../utils/axios";
+import { authenticateUser } from '../../common/requests/session/login';
 import { validateLoginForm } from './validation';
 
 function LoginPageController() {  
@@ -20,20 +20,24 @@ function LoginPageController() {
   async function handleAuth() {
     setLoading(true)
     try {
+      console.log({ loginPayload })
       const errorsCaptured = validateLoginForm(loginPayload)
-
-      if (errorsCaptured) {
+      
+      if (Object.keys(errorsCaptured).length) {
         setErrors(errorsCaptured)
         return;
       }
 
-      const { data } = await api.post('/login', loginPayload)
+      const data = await authenticateUser(loginPayload)
+
       if (data.token) {
         localStorage.setItem("@expressoApp:jwt", JSON.stringify(data.token));
         document.cookie = `@expresso_app:jwt=${JSON.stringify(data.token)}`
       }
     } catch (error) {
+      console.log({ error })
       alert(error)
+      throw new Error("Erro ao realizar login, tente novamente mais tarde!");
     }
     setLoading(true)
   }
