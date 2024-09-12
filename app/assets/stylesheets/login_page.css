@@ -1,0 +1,44 @@
+/* Login Page */
+.page{
+  background-color:  #2196F3;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.float-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+ img.login-logo{
+  margin: 0 auto;
+  display: flex;
+  object-fit: cover; 
+  max-width: 147px;
+  max-height: 84px;
+ }
+
+ .login-form-container{
+  padding: 16px;
+  margin: 16px 0;
+ }
+ 
+ .login-form-content{
+  gap: 12px;
+  align-self: center;
+  justify-self: center; 
+  padding: 18px 0;
+  flex-direction: column;
+  display: flex;
+ }
+
+ .bottom-buttons-container{
+  gap: 8px;
+  display: flex;
+ }

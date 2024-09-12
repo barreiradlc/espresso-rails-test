@@ -45,9 +45,22 @@
     "webpack-dev-server": "^4.15.2"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --watch --coverage",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html",
+      "text"
+    ],
+    "coverageDirectory": "./coverage",
+    "moduleNameMapper": {
+      "\\.svg": "<rootDir>/__mocks__/svgrMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
     "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
