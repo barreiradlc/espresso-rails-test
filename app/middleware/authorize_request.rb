@@ -7,6 +7,8 @@ class AuthorizeRequest
 
   def call(env)
     @env = env
+    @path = @env['ORIGINAL_FULLPATH']
+    return @app.call(@env) if redirect_insecure_paths
 
     begin
       @decoded = SessionJwtDecoder.new(header).call
@@ -20,16 +22,11 @@ class AuthorizeRequest
   private
 
   def header
-    @path = @env['ORIGINAL_FULLPATH']
-    return @app.call(@env) if redirect_insecure_paths
-
     cookies = Rack::Request.new(@env).cookies
     cookies['@expresso_app:jwt'] || @env['HTTP_AUTHORIZATION'].split.last
   end
 
   def redirect_insecure_paths
-    Rails.logger.debug 'REDIRECT'
-
     return true if @path.include?('favicon' || 'assets')
     return true if insecure_paths.include? @path
 

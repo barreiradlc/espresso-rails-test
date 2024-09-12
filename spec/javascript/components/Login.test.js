@@ -35,3 +35,14 @@ describe('renders the login with the correct inputs', () => {
         expect(inputElement).toHaveValue(user.password);        
     });
 });
+
+describe('Send the login payload and validating the result', () => {
+    it('click on send ogin data as expected', () => {
+        const { getByRole } = render(<LoginPageController />)        
+        const buttonElement = getByRole('button', { name: 'ENTRAR' });
+
+        fireEvent.click(buttonElement);
+    
+        expect(buttonElement).not.toBeInTheDocument()
+    });
+ })

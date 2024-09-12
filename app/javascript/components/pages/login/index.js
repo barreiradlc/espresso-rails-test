@@ -4,13 +4,15 @@ import logo from '../../../assets/logo.svg';
 
 import { default as Box } from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import { default as Typography } from '@mui/material/Typography';
+
 import PropTypes from "prop-types";
 
-function LoginPage({ handleChangeInput, handleAuth, loginPayload }) {
+function LoginPage({ handleChangeInput, handleAuth, loginPayload, errors, loading }) {
   return (
     <Box className='page'>
       <Container maxWidth="sm" className='float-container'>
@@ -28,11 +30,15 @@ function LoginPage({ handleChangeInput, handleAuth, loginPayload }) {
               noValidate
               autoComplete="off"
             >
-            <TextField value={loginPayload.email} onChange={handleChangeInput} id="email" label="Usuário" variant="outlined" />
-            <TextField value={loginPayload.password} onChange={handleChangeInput} id="password" label="Senha" variant="outlined" />                
+            <TextField error={!!errors.email} helperText={errors.email} value={loginPayload.email} onChange={handleChangeInput} id="email" label="Usuário" variant="outlined" type="email"/>
+            <TextField error={!!errors.password} helperText={errors.password} value={loginPayload.password} onChange={handleChangeInput} id="password" label="Senha" variant="outlined" type="password"/>                
           </Box> 
           <Box className="bottom-buttons-container">
-            <Button onClick={handleAuth} variant="contained">ENTRAR</Button>
+            {
+              loading ?
+                <CircularProgress color="inherit" /> :
+                <Button onClick={handleAuth} variant="contained">ENTRAR</Button>
+            }                      
             <Button variant="outlined">CRIAR CONTA</Button>
           </Box>
         </Paper>        
