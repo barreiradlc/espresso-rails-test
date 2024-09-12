@@ -98,9 +98,7 @@ describe('Send the login payload and validating the result', () => {
         
         fireEvent.change(inputPasswordElement, { target: { value: 'user.password' } });
         fireEvent.change(inputEmailElement, { target: { value: user.email } });
-        fireEvent.click(buttonElement);
-
-        console.log(authenticateUser())
+        fireEvent.click(buttonElement);        
 
         expect(() => authenticateUser.authenticateUser()).toThrow('Erro ao realizar login, tente novamente mais tarde!')
     });

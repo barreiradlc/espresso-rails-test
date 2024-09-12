@@ -20,7 +20,6 @@ function LoginPageController() {
   async function handleAuth() {
     setLoading(true)
     try {
-      console.log({ loginPayload })
       const errorsCaptured = validateLoginForm(loginPayload)
       
       if (Object.keys(errorsCaptured).length) {
@@ -35,7 +34,6 @@ function LoginPageController() {
         document.cookie = `@expresso_app:jwt=${JSON.stringify(data.token)}`
       }
     } catch (error) {
-      console.log({ error })
       alert(error)
       throw new Error("Erro ao realizar login, tente novamente mais tarde!");
     }
