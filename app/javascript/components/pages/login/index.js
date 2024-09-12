@@ -32,7 +32,7 @@ function LoginPage({ handleChangeInput, handleAuth, loginPayload }) {
             <TextField value={loginPayload.password} onChange={handleChangeInput} id="password" label="Senha" variant="outlined" />                
           </Box> 
           <Box className="bottom-buttons-container">
-            <Button variant="contained">ENTRAR</Button>
+            <Button onClick={handleAuth} variant="contained">ENTRAR</Button>
             <Button variant="outlined">CRIAR CONTA</Button>
           </Box>
         </Paper>        
