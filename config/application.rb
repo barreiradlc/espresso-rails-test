@@ -3,6 +3,7 @@
 require_relative 'boot'
 require_relative '../app/middleware/authorize_request'
 require_relative '../app/middleware/bad_request_handler'
+require_relative '../app/services/session/session_jwt_decoder'
 
 require 'rails'
 require 'rails/all'
