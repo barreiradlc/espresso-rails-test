@@ -23,7 +23,7 @@ class AuthorizeRequest
 
   def header
     cookies = Rack::Request.new(@env).cookies
-    cookies['@expresso_app:jwt'] || @env['HTTP_AUTHORIZATION'].split.last
+    cookies['@expresso_app:jwt'] || @env['HTTP_AUTHORIZATION']&.split&.last
   end
 
   def redirect_insecure_paths

@@ -7,7 +7,8 @@ class BadRequestHandler
 
   def call(env)
     @app.call(env)
-  rescue ActionController::ParameterMissing, ActiveRecord::RecordInvalid, ActionController::UnfilteredParameters => e
+  rescue ActionController::ParameterMissing, ActiveRecord::RecordInvalid, ActionController::UnfilteredParameters,
+         ActiveModel::UnknownAttributeError => e
     [400, { 'Content-Type' => 'application/json' }, [e.message]]
   end
 end
