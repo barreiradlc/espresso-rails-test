@@ -1,0 +1,48 @@
+# # ADMIN
+@email = "admin@admin.com"
+@password = "admin-password"
+
+
+# EMPLOYEE
+@employee_name = "Shanon Lucas"
+@employee_email = "shanon@lucas3.test"
+@employee_password = "72c1cshanon"
+
+
+# CARD
+@last_digits = "4321"
+
+### 
+# @name login
+POST http://localhost:3000/login 
+content-type: application/json
+
+{
+  "email": {{email}},
+  "password": {{password}}
+}
+
+###
+# @name createEmployee
+POST http://localhost:3000/employee
+content-type: application/json
+Authorization: Bearer {{ login.response.body.$.token }}
+
+{
+  "user": {
+    "name": {{employee_name}},
+    "email": {{employee_email}}
+  }
+}
+
+
+###
+# @name createCard
+POST http://localhost:3000/card
+content-type: application/json
+Authorization: Bearer {{ login.response.body.$.token }}
+
+{
+  "last_digits": {{ last_digits }},
+  "user_id": {{ createEmployee.response.body.$.employee.id }}
+}
