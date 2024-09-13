@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   put 'employee/:id', to: 'update_employee#call'
   delete 'employee/:id', to: 'delete_employee#call'
 
+  # CARDS
+  post :card, to: 'create_card#call'
+
   # CATEGORIES
   post :category, to: 'create_category#call'
 end
