@@ -15,6 +15,7 @@
  */
 
 @import "login_page.css";
+@import "register_page.css";
 
  body {
   margin: 0

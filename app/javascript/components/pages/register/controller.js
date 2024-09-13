@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { RegisterPage } from '.';
 
 function RegisterPageController() {  
   const [registerPayload, setRegisterPayload] = useState({ email: '', password: '', company: { name: '', cnpj: '' }});
@@ -50,15 +50,15 @@ function RegisterPageController() {
     errors,
   })
 
-  return <h4>controller</h4>
+  
 
-  // return <RegisterPage
-  //   handleChangeInput={handleChangeInput}
-  //   registerPayload={registerPayload}
-  //   handleRegister={handleRegister}
-  //   loading={loading}
-  //   errors={errors}
-  // />
+  return <RegisterPage
+    handleChangeInput={handleChangeInput}
+    registerPayload={registerPayload}
+    handleRegister={handleRegister}
+    loading={loading}
+    errors={errors}
+  />
 }
 
 export { RegisterPageController };
