@@ -6,5 +6,6 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: false
   has_secure_password
 
+  has_one :card, dependent: :destroy
   belongs_to :company, optional: true
 end
